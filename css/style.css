@@ -161,6 +161,11 @@ main {
     color: #2f3a5f;
 }
 
+.profile-list {
+  margin: 0;
+  list-style: none;
+}
+
 .lead {
     font-size: 1.1rem;
     margin-bottom: 16px;
