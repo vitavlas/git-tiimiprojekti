@@ -99,6 +99,10 @@ main {
     color: #2f3a5f;
 }
 
+#H {
+    font-family: "Sofia", sans-serif;
+}
+
 .members {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
