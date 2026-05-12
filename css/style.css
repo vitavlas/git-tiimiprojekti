@@ -18,8 +18,16 @@ body {
     background-color: #2f3a5f;
     color: white;
     padding: 24px 0;
+    width: 100%;
 }
 
+/* Skrollatessa ylätunniste saa kiinteän position  */
+.site-header-scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
 /* Ylätunnisteen sisältö keskitetään ja asetellaan riville */
 .header-content {
     width: 90%;
@@ -36,20 +44,26 @@ body {
 }
 
 nav {
+    position:sticky;
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+   flex-wrap: wrap;
+    gap: 40px;
+    
+
+   
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+
 }
 
 nav a:hover {
     text-decoration: underline;
 }
+
 
 /* Pääsisällön leveys ja keskitys */
 main {
@@ -83,6 +97,10 @@ main {
     font-size: 2rem;
     margin-bottom: 16px;
     color: #2f3a5f;
+}
+
+#H {
+    font-family: "Sofia", sans-serif;
 }
 
 .members {
@@ -179,6 +197,7 @@ ul {
 }
 
 @media (max-width: 800px) {
+
     /* Responsiiviset asettelut pienemmille näytöille */
     .header-content,
     .hero,
@@ -207,11 +226,24 @@ ul {
 
 .site-header-Jarkko {
     background-color: rgb(89, 38, 38);
+/* Kaapon lisäämät*/
+
+.site-footer-kaapo {
+    background-color: #c77eb6;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.site-header-kaapo {
+    background-color: #c77eb6;
     color: white;
     padding: 24px 0;
 }
 
 .profile-photo-large-Jarkko {
+.profile-photo-large-kaapo {
     width: 220px;
     height: 220px;
     object-fit: cover;
@@ -240,6 +272,10 @@ ul {
 }
 
 .profile-photo-small-Jarkko {
+    border: 6px solid #ffdcf7;
+}
+
+.profile-photo-small-kaapo {
     width: 130px;
     height: 130px;
     object-fit: cover;
@@ -253,4 +289,19 @@ ul {
 }
 #Jarkko2 {
     background-color: rgb(153, 51, 51);
+    border: 5px solid #ffdcf7;
+    margin-bottom: 16px;
+}
+
+.button-kaapo {
+    display: inline-block;
+    background-color: #c77eb6;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+}
+
+.button-kaapo:hover {
+    background-color: #b46fa4;
 }
