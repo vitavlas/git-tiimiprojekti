@@ -226,6 +226,7 @@ ul {
 
 .site-header-Jarkko {
     background-color: rgb(89, 38, 38);
+}
 /* Kaapon lisäämät*/
 
 .site-footer-kaapo {
@@ -243,6 +244,13 @@ ul {
 }
 
 .profile-photo-large-Jarkko {
+    width: 220px;
+    height: 220px;
+    
+    border-radius: 50%;
+    border: 6px solid rgb(227, 154, 154);
+}
+
 .profile-photo-large-kaapo {
     width: 220px;
     height: 220px;
@@ -272,7 +280,12 @@ ul {
 }
 
 .profile-photo-small-Jarkko {
-    border: 6px solid #ffdcf7;
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgb(227, 154, 154);
+    margin-bottom: 16px;
 }
 
 .profile-photo-small-kaapo {
