@@ -47,6 +47,10 @@ nav a {
     font-weight: bold;
 }
 
+nav a:first-of-type {
+  color: #dce2ff;
+}
+
 nav a:hover {
     text-decoration: underline;
 }
