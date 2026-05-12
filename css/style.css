@@ -18,8 +18,16 @@ body {
     background-color: #2f3a5f;
     color: white;
     padding: 24px 0;
+    width: 100%;
 }
 
+/* Skrollatessa ylätunniste saa kiinteän position  */
+.site-header-scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
 /* Ylätunnisteen sisältö keskitetään ja asetellaan riville */
 .header-content {
     width: 90%;
@@ -36,20 +44,26 @@ body {
 }
 
 nav {
+    position:sticky;
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+   flex-wrap: wrap;
+    gap: 40px;
+    
+
+   
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+
 }
 
 nav a:hover {
     text-decoration: underline;
 }
+
 
 /* Pääsisällön leveys ja keskitys */
 main {
