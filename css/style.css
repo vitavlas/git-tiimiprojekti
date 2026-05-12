@@ -1,0 +1,203 @@
+/* Perusasetukset: poistetaan oletusmarginaalit ja -täytteet */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body-elementin yleiset tyylit */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* Ylätunnisteen tyyli */
+.site-header {
+    background-color: #2f3a5f;
+    color: white;
+    padding: 24px 0;
+}
+
+/* Ylätunnisteen sisältö keskitetään ja asetellaan riville */
+.header-content {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.site-header h1 {
+    font-size: 2rem;
+}
+
+nav {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Pääsisällön leveys ja keskitys */
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+/* Esittelylohkon kortin tyyli */
+.hero {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+    align-items: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+.team-photo {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid #dce2ff;
+}
+
+.hero-text h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #2f3a5f;
+}
+
+.members {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.member-card {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-photo-small {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #dce2ff;
+    margin-bottom: 16px;
+}
+
+.member-card h3 {
+    color: #2f3a5f;
+    margin-bottom: 8px;
+}
+
+.member-card p {
+    margin-bottom: 18px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #2f3a5f;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+}
+
+.button:hover {
+    background-color: #1f2744;
+}
+
+.profile {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 40px;
+    align-items: start;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-photo-large {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #dce2ff;
+}
+
+.profile-info h2 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: #2f3a5f;
+}
+
+.profile-info h3 {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: #2f3a5f;
+}
+
+.lead {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+ul {
+    margin-left: 22px;
+}
+
+.site-footer {
+    background-color: #2f3a5f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+@media (max-width: 800px) {
+    /* Responsiiviset asettelut pienemmille näytöille */
+    .header-content,
+    .hero,
+    .profile {
+        display: block;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        margin-top: 16px;
+    }
+
+    .team-photo,
+    .profile-photo-large {
+        margin-bottom: 24px;
+    }
+
+    .members {
+        grid-template-columns: 1fr;
+    }
+}

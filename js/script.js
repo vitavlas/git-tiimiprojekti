@@ -1,0 +1,1 @@
+console.log("Git-tiimiprojekti käynnistetty");
