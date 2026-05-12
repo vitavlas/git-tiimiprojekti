@@ -37,14 +37,16 @@ body {
 
 nav {
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+   flex-wrap: wrap;
+    gap: 40px;
+   
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+
 }
 
 nav a:hover {
