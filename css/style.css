@@ -48,8 +48,6 @@ nav {
     display: flex;
    flex-wrap: wrap;
     gap: 40px;
-    
-
    
 }
 
@@ -226,6 +224,8 @@ ul {
 
 .site-header-Jarkko {
     background-color: rgb(89, 38, 38);
+    padding: 24px 0;
+    color: white;
 }
 /* Kaapon lisäämät*/
 
