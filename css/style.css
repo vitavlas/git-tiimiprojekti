@@ -60,6 +60,10 @@ nav a {
 
 }
 
+nav a:first-of-type {
+  color: #dce2ff;
+}
+
 nav a:hover {
     text-decoration: underline;
 }
@@ -177,6 +181,11 @@ main {
     margin-top: 24px;
     margin-bottom: 8px;
     color: #2f3a5f;
+}
+
+.profile-list {
+  margin: 0;
+  list-style: none;
 }
 
 .lead {
