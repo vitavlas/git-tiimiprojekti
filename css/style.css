@@ -236,12 +236,24 @@ ul {
     }
 
     /* Hamburber-menu */ 
-        .site-header #myLinks {
+        #myLinks {
             display: none;
              
     }
-
         .site-header a {
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+    }
+        .site-header-Jarkko a {
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+    }
+        .site-header-kaapo a {
+            background-color: #c77eb6;
             color: white;
             padding: 14px 16px;
             text-decoration: none;

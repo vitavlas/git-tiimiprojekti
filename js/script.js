@@ -21,10 +21,11 @@ const HamBurg = document.getElementById("HamIcon");
 const x = document.getElementById("myLinks");
 
 // Näytä tai piilota navigaatiolinkit, kun hampparikuvaketta klikataan
-HamBurg.addEventListener("click", () => {
+function HamburberMenu() {
+  var x = document.getElementById("myLinks");
     if (x.style.display === "block") {
         x.style.display = "none";
     } else {
     x.style.display = "block";
   }
-});
+};
