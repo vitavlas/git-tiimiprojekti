@@ -28,6 +28,7 @@ body {
     left: 0;
     z-index: 1000;
 }
+
 /* Ylätunnisteen sisältö keskitetään ja asetellaan riville */
 .header-content {
     width: 90%;
@@ -44,11 +45,11 @@ body {
 }
 
 nav {
-    position:sticky;
+    position: sticky;
     display: flex;
-   flex-wrap: wrap;
+    flex-wrap: wrap;
     gap: 40px;
-   
+
 }
 
 nav a {
@@ -59,7 +60,7 @@ nav a {
 }
 
 nav a:first-of-type {
-  color: #dce2ff;
+    color: #dce2ff;
 }
 
 nav a:hover {
@@ -182,8 +183,8 @@ main {
 }
 
 .profile-list {
-  margin: 0;
-  list-style: none;
+    margin: 0;
+    list-style: none;
 }
 
 .lead {
@@ -276,6 +277,7 @@ ul {
 #Jarkko1 {
     color: rgb(153, 51, 51);
 }
+
 #Jarkko2 {
     background-color: rgb(153, 51, 51);
     margin-bottom: 16px;
@@ -326,4 +328,84 @@ ul {
 
 .button-kaapo:hover {
     background-color: #b46fa4;
+}
+
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+/* Starting hidden state */
+.animate-text,
+.animate-image,
+.animate-card {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* When visible */
+.show-animation {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Text animation */
+.animate-text.show-animation {
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+/* Image animation */
+.animate-image {
+    transform: scale(0.85);
+}
+
+.animate-image.show-animation {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+/* Member cards */
+.animate-card.show-animation {
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+/* Stagger effect */
+.animate-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.animate-card:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.animate-card:nth-child(3) {
+    transition-delay: 0.5s;
+}
+
+.animate-card:nth-child(4) {
+    transition-delay: 0.7s;
+}
+
+.animate-card:nth-child(5) {
+    transition-delay: 0.9s;
+}
+
+/* Hover effect */
+.member-card {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
