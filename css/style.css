@@ -286,20 +286,6 @@ ul {
 
 /* Kaapon lisäämät*/
 
-.site-footer-kaapo {
-    background-color: #c77eb6;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-}
-
-.site-header-kaapo {
-    background-color: #c77eb6;
-    color: white;
-    padding: 24px 0;
-}
-
 .profile-photo-large-kaapo {
     width: 220px;
     height: 220px;
