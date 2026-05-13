@@ -13,9 +13,14 @@ window.addEventListener('scroll', () => {
 });
 
 
+
+// Hamburber-menu
+
+// Haetaan hampparikuvake ja navigaatiolinkit
 const HamBurg = document.getElementById("HamIcon");
 const x = document.getElementById("myLinks");
 
+// Näytä tai piilota navigaatiolinkit, kun hampparikuvaketta klikataan
 HamBurg.addEventListener("click", () => {
     if (x.style.display === "block") {
         x.style.display = "none";
