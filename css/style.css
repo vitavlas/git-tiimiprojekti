@@ -4,12 +4,110 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Määritellään muuttujat */
+:root {
+  --night-color: #2e2e58;
+  --day-color: white;
+  --night-background: radial-gradient(circle at top left, #3d3d68, #02021d);
+  --transition-time: 0.5s;
+}
 
-/* Body-elementin yleiset tyylit */
+
+
+
+/* Painike */
+.container .switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(10rem,5px);
+
+}
+
+
+/* slider  */
+.container .switch .slider {
+  position: absolute;
+  height: 40px;
+  width: 80px;
+  border-radius: 30px;
+  background-color: var(--day-color);
+  cursor: pointer;
+  transition: var(--transition-time);
+  z-index: 99;
+}
+
+/* (Sun/Moon) */
+.container .switch .slider:before {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  height: 30px;
+  width: 30px;
+  content: "";
+  border-radius: 50%;
+  background-color: var(--night-color);
+  transition: var(--transition-time);
+}
+
+/*Pilotetaan input */
+#toggle {
+  opacity: 0;
+  touch-action: none;
+}
+
+/*  Logiikka: Checked  */
+#toggle:checked ~ .slider {
+  background-color: var(--night-color);
+}
+
+#toggle:checked ~ .slider:before {
+  background-color: var(--night-color);
+  box-shadow: inset -10px -5px 0 0px yellow;
+  transform: translate(40px, 1px);
+}
+
+#toggle:checked ~ .slide-block {
+  left: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+
+/* Kun dark-mode on päällä, muutetaan bodyn tausta */
+body.dark-mode {
+    background: var(--night-background);
+    background-attachment: fixed; /* Pitää gradientin paikallaan */
+    color: white; /* Muuttaa tekstin vaaleaksi automaattisesti */
+    
+}
+/* //kun dark-mode on päällä, muutetaan tekstin väri vaaleaksi */
+h2.dark-mode, h3.dark-mode, p.dark-mode, a.dark-mode {
+    color: white !important;
+}
+/* Voit muuttaa myös korttien väriä kerralla */
+body.dark-mode .member-card  {
+    background-color: rgba(15, 14, 14, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    
+}
+section.dark-mode {
+    background-color: rgba(15, 14, 14, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+section.profile.dark-mode {
+    background-color: rgba(15, 14, 14, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Body-elementin yleiset tySylit */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6fb;
-    color: #222;
+    /* color: #222; */
     line-height: 1.6;
 }
 
