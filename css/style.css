@@ -328,8 +328,87 @@ ul {
     background-color: #b46fa4;
 }
 
-.projektit {
-     display: grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 24px;
+/* Portfolio- sivun erityiset muotoilut*/
+
+.portfolio-grid {
+    position: relative;
+    width: 100%;
+    height: 800px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#varjo {
+    background-color: white;
+    box-shadow: 0px 4px 12px 10px darkgray;
+}
+
+.hero-portfolio {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    background: #2f3a5f;
+    color: white;
+
+    border-radius: 50%; /* tärkeä: kukka = ympyrä */
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.hero-portfolio .team-photo {
+    width: 100%;
+    max-width: 220px;
+
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+
+    border-radius: 50%;
+    border: 8px solid #dce2ff;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.member-card1 {
+    background: white;
+    border-radius: 12px;
+}
+
+.alex {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.jarkko {
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.heini {
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.kaapo {
+    bottom: 0;
+    left: 35%;
+    transform: translateY(50%);
+}
+
+.vitalii {
+    bottom: 0;
+    right: 35%;
+    transform: translateY(50%);
 }
