@@ -121,8 +121,8 @@ main {
 }
 
 .profile-photo-small {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid #dce2ff;
@@ -266,8 +266,8 @@ ul {
 }
 
 .profile-photo-small-Jarkko {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid rgb(231, 114, 114);
@@ -295,8 +295,8 @@ ul {
 }
 
 .profile-photo-small-kaapo {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid rgb(227, 154, 154);
@@ -379,4 +379,38 @@ ul {
 .member-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    height: 0;
+    overflow: hidden;
+}
+
+/* HOVER TILA */
+.member-card:hover .profile-photo-small,
+.member-card:hover .profile-photo-small-Jarkko,
+.member-card:hover .profile-photo-small-kaapo {
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
+}
+
+/* Teksti näkyviin hoverissa */
+.member-card:hover .member-info {
+    opacity: 1;
+    transform: translateY(0);
+    height: auto;
+}
+
+/* Kuva pysyy keskitettynä eikä kortti muutu */
+.member-card {
+    max-height: 350px;
+    min-height: 350px;
 }
