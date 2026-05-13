@@ -303,19 +303,6 @@ ul {
     margin-bottom: 16px;
 }
 
-.button-kaapo {
-    display: inline-block;
-    background-color: #c77eb6;
-    color: white;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 6px;
-}
-
-.button-kaapo:hover {
-    background-color: #b46fa4;
-}
-
 /* =========================================
    ANIMATIONS
 ========================================= */
