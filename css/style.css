@@ -238,6 +238,9 @@ ul {
     /* Hamburber-menu */ 
         #myLinks {
             display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 16px;
              
     }
         .site-header a {
@@ -258,6 +261,11 @@ ul {
             padding: 14px 16px;
             text-decoration: none;
             font-size: 17px;
+    }
+}
+@media (min-width: 800px) { 
+    #myLinks {
+        display: flex !important;
     }
 }
 
