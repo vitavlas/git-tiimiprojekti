@@ -327,3 +327,9 @@ ul {
 .button-kaapo:hover {
     background-color: #b46fa4;
 }
+
+.projektit {
+     display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 24px;
+}
