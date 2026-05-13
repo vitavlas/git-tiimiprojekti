@@ -19,6 +19,7 @@ body {
     color: white;
     padding: 24px 0;
     width: 100%;
+    position: relative;
 }
 
 /* Skrollatessa ylätunniste saa kiinteän position  */
@@ -43,26 +44,25 @@ body {
     font-size: 2rem;
 }
 
-nav {
+#myLinks {
     position:sticky;
     display: flex;
-   flex-wrap: wrap;
+    flex-wrap: wrap;
     gap: 40px;
-   
 }
 
-nav a {
+#myLinks a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 
 }
 
-nav a:first-of-type {
+#myLinks a:first-of-type {
   color: #dce2ff;
 }
 
-nav a:hover {
+#myLinks a:hover {
     text-decoration: underline;
 }
 
@@ -203,6 +203,10 @@ ul {
     margin-top: 50px;
 }
 
+#HamIcon {
+        display: none;
+    }
+
 @media (max-width: 800px) {
 
     /* Responsiiviset asettelut pienemmille näytöille */
@@ -226,6 +230,27 @@ ul {
     .members {
         grid-template-columns: 1fr;
     }
+
+    #HamIcon {
+        display: block;
+    }
+
+    /* Hamburber-menu */ 
+        .site-header #myLinks {
+            display: none;
+             
+    }
+
+        .site-header a {
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+    }
+}
+
+@media (min-width: 800px) {
+
 }
 
 
