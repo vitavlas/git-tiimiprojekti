@@ -1,0 +1,420 @@
+body {
+    background-color: #f6d6dc;
+    font-family: "Lato", sans-serif;
+    color: #243224;
+    letter-spacing: 0.3px;
+}
+
+h1 {
+    font-family: "Cormorant Garamond", serif;
+    color: darkgoldenrod;
+    margin-bottom: 15px;
+     letter-spacing: 1px;
+}
+
+.pohja {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+    gap: 40px;
+    padding: 20px;
+}
+
+/* Sivupalkki jossa on otsikko ja ohjeteksti*/
+
+.vasen {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+}
+
+.tietoja {
+    align-items: flex-start;
+    max-width: 250px;
+    text-align: left;
+    color: #4e6a4e;
+}
+
+/* "Pelilauta" eli alue jonka päälle kortit rakentuvat*/
+
+.alusta {
+    box-sizing: border-box;
+    border-image-slice: 100; /*Jakaa reunuksena käytetyn köynnöselementin osiin*/
+    border-image-repeat: stretch;
+    margin: 0;
+    padding: 50px;
+    border-radius: 0px;
+    width: fit-content;
+    max-width: 820px; /* 🔑 rajoittaa leveyden */
+    margin: 0 auto;   /* keskittää */
+    flex-shrink: 0;
+    position: relative;
+    background: #f8f4f0;
+    padding: 80px;
+}
+
+/*Tässä niinsanotusti piirretään koriste alustan päälle*/
+
+.alusta::before {
+    content: "";
+    position: absolute;
+    inset: -60px;
+    border: 60px solid transparent;
+    border-image: url("kuvat/koynnos1.png") 120 round;
+    pointer-events: none; 
+    z-index: 0;
+}
+
+/*Gridillä hallinnoitavat kortit*/
+
+.korttialue {
+    display: grid;
+    grid-template-columns: repeat(6, 120px);
+    grid-auto-rows: 120px;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Yksittäisen kortin perusspeksit*/
+
+.kortti {
+    width: 120px;
+    height: 120px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+/* Koko kortti*/
+
+.kortti-sisa {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.4s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(40, 80, 40, 0.15);
+}
+
+/* ALla erilaisia "korttipohjia" käyttötarkoituksen mukaan.
+Esim. videot tarvitsevat isomman alueen toimiakseen*/
+
+.kortti.iso {
+    width: 250px;
+    height: 250px;
+}
+
+.kortti-video {
+
+     width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kortti.hero {
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%;
+    height: 100%;
+}
+
+.kortti.hero video {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.kortti.hero.kaannetty video {
+    opacity: 1;
+}
+
+/* Varmistaa että sisäosa täyttyy */
+
+.kortti.hero .kortti-sisa {
+    height: 100%;
+}
+
+/* Video näyttää hvyältä */
+
+.kortti.kaannetty .kortti-sisa {
+    transform: rotateY(180deg);
+}
+
+.kortti.hero .kortti-sisa {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* Lisää piene zoomin hoverilla */
+
+.kortti.hero:hover {
+    transform: scale(1.03);
+}
+
+/* Kortin päällysosa eli korttipakka-ajattelussa kuvapuoli*/
+
+.etu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eef7f0; /* vaalea vihreä */
+    border: 2px solid #9bc59b;
+    color: #2d3d2d;
+    border-radius: 10px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.kortti:hover .etu {
+    background-color: #e0f2e3;
+}
+
+/* Korttipakka-ajattelun mukaisesti kortin takapuoli*/
+
+.tausta {
+    transform: rotateY(180deg);
+    background-size: cover;
+    background-position: center;
+    background-color: #e4f0e6;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 2px solid #8fbf8f;
+    border-radius: 10px;
+}
+
+.tausta-linkki {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+}
+
+.tausta-linkki:hover {
+    background-color: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.tausta button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    background-color: forestgreen;
+}
+
+.valinta-nappi,
+.tausta button {
+    background-color: #6fae6f;
+    color: white;
+    border: none;
+}
+
+.valinta-nappi:hover,
+.tausta button:hover {
+    background-color: #5c965c;
+}
+
+.hidden {
+    display: none;
+}
+
+/*Kolmosnapin valintanappuloihin liittyvää asiaa*/
+
+.valinnat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.valinnat button {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.valinta-nappi {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    font-size: 12px;
+    border: none;
+    border-radius: 6px;
+    color: #f0f7f0;
+    cursor: pointer;
+}
+
+.valinnat .valinta-nappi {
+    position: static;
+    transform: none;
+    width: 80%;
+}
+
+/*Viimeisen kortin määrityksiä*/
+
+.spotify-upotus {
+    width: 85%;
+    height: 80%;
+    border: none;
+    border-radius: 10px;
+    pointer-events: auto;
+    justify-content: center;
+}
+
+/* Hieman isompi kortti jotta asettui paremmin laudalle*/
+
+.kortti.spotify {
+    grid-column: 2 / span 4;
+    grid-row: span 2;   
+}
+
+.kortti.kaannetty .tausta {
+    pointer-events: auto;
+}
+
+.nappi {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sulje-nappi {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 8px;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.kortti.spotify .kortti-sisa {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.kortti.spotify .tausta {
+    cursor: pointer;
+
+/*Tässä sama kuin köynnöskuvin kanssa*/
+
+}
+.kortti.spotify .tausta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    border-radius: 10px;
+}
+
+.spotify-ui {
+    background: linear-gradient(180deg, #6fae6f, #2f3e2f);
+    cursor: pointer;
+}
+
+.spotify-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0,0,0,0.6);
+    padding: 12px;
+    border-radius: 12px;
+    width: 85%;
+}
+
+.spotify-cover {
+    width: 70px;
+    height: 70px;
+    background-image: url("kuvat/spotify-cover.jpg"); /* vaihda kuva */
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.spotify-info {
+    flex: 1;
+    color: white;
+}
+
+.spotify-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.spotify-artist {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.spotify-controls {
+    margin-top: 8px;
+}
+
+.play-nappi {
+    width: 35px;
+    height: 35px;
+    background: #1db954;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.play-nappi:hover {
+    transform: scale(1.1);
+}
+
+/* Nappeihin tulevat taustapuolen kuvat*/
+
+.kuva1 {
+    background-image: url("kuvat/metsa.png");
+}
+
+.kuva2 {
+    background-image: url("kuvat/lehti.jpg");
+}
+
+.kuva3 {
+    background-image: url("kuvat/taustankuva.jpg");
+}
+
+.kuva4 {
+    background-image: url("kuvat/nakyma.jpg");
+}
+
+.kuva5 {
+    background-image: url("kuvat/sopo.jpg");
+}
+
+.kuva6 {
+    background-image: url("kuvat/kuu.jpg");
+}
+
+.footteri {
+    margin-top: 45px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #4f7f6f;
+}

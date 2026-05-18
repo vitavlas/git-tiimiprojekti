@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kortteja</title>
+    <link rel="stylesheet" href="muotoilut.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="pohja">
+        
+        <div class="vasen">
+            
+            <h1>Rentoutustuokio</h1>
+            
+            <div class="tietoja">
+                <p>Tervetuloa hengähtämään hetkeksi ja rentoutumaan kiireisen arjen lomassa. Luukut aukeavat kun 
+                viet hiiren niiden päälle ja klikkaat. Ne sulkeutuvat kun klikkaat uudelleen. Voit pitää auki kaikki luukut 
+                tai vain yhden kerrallaan. Katso kuvaa, kuuntele ääntä. Jos tuntuu että kaipaat pientä 
+                "nollausta" niin sulje silmäsi ja nauti äänistä &#127926;</p>
+            </div>
+        
+        </div>
+
+        <!-- ALusta jonka päälle rakentuu "pelilauta" eli toimintakortit, Jokaisessa kortissa on jokin kuva tai
+         video sekä ääniefekti, paitsi viimeinen kortti jonka kautta pääsee Spotifyhin. Linkki toimii muuten mutta se vaatii 
+         kirjautumisen tilille-->
+        
+        <div class="alusta" id="lauta">
+            
+            <div class="korttialue">
+                
+                <div class="kortti eka" data-audio="aanet/metsa.mp3">
+                    
+                    <div class="kortti-sisa">
+                        
+                        <div class="etu">Tervetuloa &#127795;</div>
+                        
+                        <div class="tausta kuva1"></div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="kortti" data-audio="aanet/tippa.mp3">
+                    
+                    <div class="kortti-sisa">
+                        
+                        <div class="etu">Huomaa pieniä yksityiskohtia ympärilläsi</div>
+                        
+                        <div class="tausta kuva2"></div>
+                    
+                    </div>
+                
+                </div>
+
+                <!-- Tämä kortti sisältää kolme valintanappulaa joita klikkaamalla 
+                 avautuu jokin kolmesta muusta kortista-->
+                
+                <div class="kortti" data-audio="aanet/valinta.mp3">
+                    
+                    <div class="kortti-sisa">
+                        
+                        <div class="etu">Valitse vaihtoehto luukun takaa. Mihin polku vie?</div>
+                        
+                        <div class="tausta kuva3">
+                            
+                            <div class="valinnat">
+                                
+                                <button class="valinta-nappi" data-target="kortti4">1</button>
+                                <button class="valinta-nappi" data-target="kortti5">2</button>
+                                <button class="valinta-nappi" data-target="kortti6">3</button>
+                            
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="kortti" id="kortti4" data-audio="aanet/ylhaalla.mp3">
+                    
+                    <div class="kortti-sisa">
+                        
+                        <div class="etu">Ylös..</div>
+                        
+                        <div class="tausta kuva4"></div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="kortti" id="kortti5" data-audio="aanet/koira.mp3">
+                    
+                    <div class="kortti-sisa">
+                        
+                        <div class="etu">Nauti hetki...</div>
+                        
+                        <div class="tausta kuva5"></div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="kortti" id="kortti6" data-audio="aanet/yo.mp3">
+                    
+                    <div class="kortti-sisa">
+                        
+                        <div class="etu">Kuutamoyön taikaa...</div>
+                        
+                        <div class="tausta kuva6"></div>
+                    
+                    </div>
+                
+                </div>
+
+                <!-- Kolme seuraavaa ovat videokortteja joiden takapuolella pyörii video-->
+                
+                <div class="kortti hero" data-audio="aanet/akvaario.mp3">
+                    
+                    <div class="kortti-sisa">
+                        
+                        <div class="etu">&#128031; &#128032; &#128033;</div>
+                        
+                        <div class="tausta">
+                            
+                            <video class="kortti-video"
+                            src="kuvat/akvaario.mp4" 
+                            muted 
+                            loop 
+                            playsinline>
+                            </video>
+                        
+                        </div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="kortti hero" data-audio="aanet/tuli.mp3">
+                    
+                    <div class="kortti-sisa">
+                        
+                        <div class="etu">&#128293; &#128293; &#128293;</div>
+                        
+                        <div class="tausta">
+                            
+                            <video class="kortti-video"
+                            src="kuvat/tuli.mp4" 
+                            muted 
+                            loop 
+                            playsinline>
+                            </video>
+                        
+                        </div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="kortti hero" data-audio="aanet/meri.mp3">
+                    
+                    <div class="kortti-sisa">
+                        
+                        <div class="etu">&#x1F30A; &#x1F30A; &#x1F30A;</div>
+                        
+                        <div class="tausta">
+                            
+                            <video class="kortti-video"
+                            src="kuvat/meri.mp4" 
+                            muted 
+                            loop 
+                            playsinline>
+                            </video>
+                        
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+                <!-- Spotifyhyn vievä kortti. Tämä siis toimii muutoin mutta siellä päässä
+                 vaatii kai kirjautumisen -> olin kirjautuneena omalle tilille kun loin linkin
+                 eli ei tokikaan toimi mutta tutkailen sitä vielä joskus-->
+                
+                <div class="kortti hero spotify">
+                    
+                    <div class="kortti-sisa">
+                        
+                        <div class="etu"> &#127925; Kuunteluhetki &#127925;</div>
+                        
+                        <div class="tausta spotify-ui">
+                            
+                            <div class="spotify-card">
+                                
+                                <div class="spotify-cover"></div>
+                                
+                                <div class="spotify-info">
+                                    
+                                    <div class="spotify-title">Rentoutussoittolista (avautuu Spotifyssa)</div>
+                                    
+                                    <div class="spotify-artist">Spotify</div>
+                                    
+                                    <div class="spotify-controls">
+                                        
+                                        <div class="play-nappi spotify-nappi">▶</div>
+                                    
+                                    </div>
+                                
+                                </div>
+                            
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+                
+                </div>
+            
+            </div>
+
+        </div>
+
+    </div>
+            
+            <footer class="footteri">
+                &copy; Heini Pöllänen
+            </footer>
+            
+    <script src="toiminnot.js"></script>
+
+</body>
+
+</html>
