@@ -12,46 +12,31 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// dark mode toggle
-window.onload = function () {
-    // Haetaan tarvittavat elementit
-    const toggle = document.getElementById('toggle');
+document.addEventListener("DOMContentLoaded", () => {
+    // haetaan toggle-elementti ja body
+    const toggle = document.getElementById("toggle");
     const body = document.body;
-    const kortit = document.querySelectorAll('.member-card');
-    const hero = document.querySelector('.hero');
-    const profiili = document.querySelector('.profile');
-    const tekstit = document.querySelectorAll('h1, h2, h3, p, a');
 
-// Kuunnellaan toggle-kytkimen tilaa ja muutetaan tyylejä sen mukaan
-    toggle.addEventListener('change', function () {
-        // Jos toggle on päällä, lisätään dark-mode-luokka bodyyn ja muihin elementteihin
-        if (this.checked) {
+    // Lataa tallennettu teema ensin
+    const savedTheme = localStorage.getItem("theme");
 
-            body.classList.add('dark-mode');
+    const isDark = savedTheme === "dark";
 
-            kortit.forEach(kortit => {
-                kortit.classList.add('dark-mode');
-            });
+    // Käytä teemaa latauksen aikana
+    setTheme(isDark);
 
-            hero?.classList.add('dark-mode');
-            profiili?.classList.add('dark-mode');
-            tekstit.forEach(teksti => {
-                teksti.classList.add('dark-mode');
-            });
-        } else {
-            // Jos toggle on pois päältä, poistetaan dark-mode-luokka bodyltä ja muilta elementeiltä
-            body.classList.remove('dark-mode');
-
-            kortit.forEach(kortit => {
-                kortit.classList.remove('dark-mode');
-            });
-
-            hero?.classList.remove('dark-mode');
-            profiili?.classList.remove('dark-mode');
-            tekstit.forEach(teksti => {
-                teksti.classList.remove('dark-mode');
-            });
-        }
+    // kun toggle vaihtuu, päivitetään teema
+    toggle.addEventListener("change", () => {
+        setTheme(toggle.checked);
     });
 
-};
+    function setTheme(isDark) {
+        body.classList.toggle("dark-mode", isDark);
+
+        // talennetaan teema localStorageen
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+
+        // säilytetään toggle-tilan synkronointi
+        if (toggle) toggle.checked = isDark;
+    }
+});
