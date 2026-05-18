@@ -76,34 +76,37 @@
 
 
 
-/* Kun dark-mode on päällä, muutetaan bodyn tausta */
+/* tumma-tila */
 body.dark-mode {
     background: var(--night-background);
-    background-attachment: fixed; /* Pitää gradientin paikallaan */
-    color: white; /* Muuttaa tekstin vaaleaksi automaattisesti */
-    
+    background-attachment: fixed;
+    color: white;
 }
-/* //kun dark-mode on päällä, muutetaan tekstin väri vaaleaksi */
-h2.dark-mode, h3.dark-mode, p.dark-mode, a.dark-mode {
-    color: white !important;
+
+/* tekstit */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode a {
+    color: white;
 }
-/* Voit muuttaa myös korttien väriä kerralla */
-body.dark-mode .member-card  {
+
+/* kortit */
+body.dark-mode .member-card {
     background-color: rgba(15, 14, 14, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-    
-}
-section.dark-mode {
-    background-color: rgba(15, 14, 14, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-section.profile.dark-mode {
+/* SECTIONS */
+body.dark-mode section,
+body.dark-mode section.profile {
     background-color: rgba(15, 14, 14, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Body-elementin yleiset tySylit */
+
+/* Body-elementin yleiset */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6fb;
