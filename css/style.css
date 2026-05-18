@@ -411,3 +411,70 @@ ul {
 .profile-picture:hover .overlay {
   opacity: 0.8;
 }
+
+/* Accordion */
+
+.accordion {
+  display: grid;
+  gap: 1rem;
+}
+
+.accordion-item {
+  padding: 0.5rem 1rem;
+  background-color: rgb(220 226 255 / 0.7);
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: #2f3a5f;
+  font-weight: 600;
+
+  &::after {
+    content: "+";
+    transition: transform 0.3s;
+  }
+}
+
+.accordion-content {
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.accordion-item[open] .accordion-header::after {
+  transform: rotate(45deg);
+}
+
+/* Fallback animation */
+@supports not (selector(::details-content) and (interpolate-size: allow-keywords)) {
+  .accordion-content {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s, opacity 0.3s;
+  }
+
+  .accordion-item[open] .accordion-content {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+/* Animation for modern features supporting browsers */
+@supports (selector(::details-content)) and (interpolate-size: allow-keywords) {
+  .accordion {
+    interpolate-size: allow-keywords;
+  }
+
+  .accordion-item::details-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s, content-visibility 0.3s;
+    transition-behavior: allow-discrete;
+  }
+
+  .accordion-item[open]::details-content {
+    height: auto;
+  }
+}
